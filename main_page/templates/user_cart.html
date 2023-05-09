@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for user_cart in cart %}
+  {{ user_cart.user_product }}<br>
+  {{ user_cart.user_product_quantity }}<br>
+  {{ user_cart.total_for_product }}<br>
+{% endfor %}
+
+<form action="/order" method="post">
+    {% csrf_token %}
+    <button onclick="confirm()">Оформит заказ</button>
+</form>
+
+<script>
+    function confirm(){
+        alert('Поттверждаете заказ ?')
+        }
+</script>
+
+</body>
+</html>
